@@ -6,6 +6,37 @@
   // .features is both a grid item, and a grid container
   display: grid;
   // 3 columns of 1 fractional unit each in width
-  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  //****** REPONSIVE GRIDS ******//
+  // auto-fit creates as many tracks as can fit on the width that we define
+  // columns have minimum width of 250px
+  // css will fit as many column tracks in the container as possible where the columns can be 250px,
+  // if 3 x 250px column tracks won't fit, we get 2 x 25px column tracks, and on the smallest devices a one column grid layout
+  // this enables us to create responsive grid layouts without the need for media queries
+
   grid-gap: 6rem;
+  align-items: start;
+}
+
+.feature {
+  // each feature box to be its own 2x2 grid to position the icon, h4 and text
+  display: grid;
+  // first column to fit the width of the content, second column occupies the rest
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary; // for colouring svg icons
+    width: 4.5rem;
+    height: 4.5rem;
+    // positioning the icon:
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
