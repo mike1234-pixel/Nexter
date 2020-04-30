@@ -1,3 +1,5 @@
 .gallery {
   background-color: $color-grey-dark-1;
+  grid-column: full-start / full-end;
+  // section will span the full width, which is the entire viewport width excluding the sidebar
 }

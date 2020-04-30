@@ -39,7 +39,25 @@ body {
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr) [full-end];
+  // sidebar column of 8rem (80px) wifth, then
+  // surround the 8 column grid with 1fr (with a minimum width of 6rem/60px) left and right to fill the remaining space and center the 8 grid column in the viewport, then
+  // 8 column grid layout - minimum width of the columns = minimum needed to fit the content, max width = 14rem (140px)
+  /* note: if we didn't have the sidebar, then margin: auto 0 would have centered the column as well */
+  // Then, the vertical grid lines are named, and
+  // in the repeat() we have a named set of columns, with grid-lines named col-start 1, col-end 1, col-start 2, col-end 2, and so on through to 8.
+
+  & > * {
+    padding: 40px;
+    font-size: 3rem;
+  }
 }
+
+// in a grid layout the overall focus tends to be on the columns rather than the rows,
+// so we tend to name the columns and not the rows
 
 /* 
  row 1: 80vh

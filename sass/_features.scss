@@ -1,3 +1,5 @@
 .features {
   background-color: $color-grey-light-1;
+  grid-column: center-start/ center-end;
+  // features section to span the full 8-grid column width only
 }
