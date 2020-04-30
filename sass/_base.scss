@@ -49,11 +49,6 @@ body {
   /* note: if we didn't have the sidebar, then margin: auto 0 would have centered the column as well */
   // Then, the vertical grid lines are named, and
   // in the repeat() we have a named set of columns, with grid-lines named col-start 1, col-end 1, col-start 2, col-end 2, and so on through to 8.
-
-  & > * {
-    padding: 40px;
-    font-size: 3rem;
-  }
 }
 
 // in a grid layout the overall focus tends to be on the columns rather than the rows,

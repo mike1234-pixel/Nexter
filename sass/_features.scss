@@ -1,5 +1,11 @@
 .features {
-  background-color: $color-grey-light-1;
   grid-column: center-start/ center-end;
   // features section to span the full 8-grid column width only
+
+  margin: 15rem 0;
+  // .features is both a grid item, and a grid container
+  display: grid;
+  // 3 columns of 1 fractional unit each in width
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
 }
