@@ -2,6 +2,32 @@
   &__pictures {
     background-color: $color-primary;
     grid-column: full-start / col-end 4;
+    background-image: linear-gradient(
+        rgba($color-primary, 0.5),
+        rgba($color-primary, 0.5)
+      ),
+      url(../img/back.jpg);
+
+    display: grid;
+    // 6x6 grid for the pictures section:
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+  }
+
+  &__img--1 {
+    width: 100%;
+    grid-row: 2 / 6; // img to span from grid line number 2 to grid line number 6
+    grid-column: 2 / 6;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.1);
+  }
+  &__img--2 {
+    position: relative;
+    z-index: 5;
+    width: 115%; // this creates the image overlap
+    grid-row: 4 / 6;
+    grid-column: 4 / 7;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.2);
   }
   &__content {
     background-color: $color-grey-light-1;
