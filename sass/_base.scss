@@ -14,6 +14,11 @@ $color-grey-dark-2: #6d5d4b;
 $font-primary: "Nunito", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
 
+// RESPONSIVE BREAKPOINTS
+
+$bp-largest: 75em; //1200px / 16 = 75em
+$bp-large: 62.5em; // 1000px
+
 // GLOBAL RESET
 
 *,
@@ -27,6 +32,10 @@ $font-display: "Josefin Sans", sans-serif;
 html {
   box-sizing: border-box;
   font-size: 62.5%; // so that 1rem = 10 pixels
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%; // 1rem = 8px on screen sizes < 1200px
+  }
 }
 
 body {
@@ -49,6 +58,14 @@ body {
   /* note: if we didn't have the sidebar, then margin: auto 0 would have centered the column as well */
   // Then, the vertical grid lines are named, and
   // in the repeat() we have a named set of columns, with grid-lines named col-start 1, col-end 1, col-start 2, col-end 2, and so on through to 8.
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns:
+      [full-start] minmax(6rem, 1fr)
+      [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+      [center-end] minmax(6rem, 1fr) [full-end];
+  }
 }
 
 // in a grid layout the overall focus tends to be on the columns rather than the rows,

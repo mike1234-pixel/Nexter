@@ -6,6 +6,11 @@
   // to center the nav-btn horizontally in the sidebar:
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
 }
 
 .nav-btn {
