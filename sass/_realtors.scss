@@ -9,6 +9,11 @@
   justify-items: center;
   grid-row-gap: 2rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    // section to span full width on medium viewport
+    grid-column: 1 / -1;
+  }
+
   &__list {
     // using 2x3 grid
     display: grid;
@@ -16,6 +21,16 @@
     grid-column-gap: 2rem;
     grid-row-gap: 5vh;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      // to layout the realtors side by side
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      // go back to being vertically aligned on smallest screen size
+      grid-template-columns: min-content max-content; // img / text
+    }
   }
   &__img {
     width: 7rem;

@@ -18,6 +18,8 @@ $font-display: "Josefin Sans", sans-serif;
 
 $bp-largest: 75em; //1200px / 16 = 75em
 $bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37em; // 600px
 
 // GLOBAL RESET
 
@@ -65,6 +67,11 @@ body {
       [full-start] minmax(6rem, 1fr)
       [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
       [center-end] minmax(6rem, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    // adding new row for realtors section on smaller screens, left header to fill entire viewport
+    grid-template-rows: 6rem calc(100vh - 6rem); // the first two rows are the only ones we want to change from the default of min-content... the rest of the rows will adapt to fit the content
   }
 }
 
