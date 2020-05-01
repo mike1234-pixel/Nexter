@@ -25,12 +25,38 @@
     justify-self: start;
   }
 
+  // text, and ::before and ::after pseudo-elements can all be grid items
+  // using before and after pseudo elements to create the lines around the seen-on text
   &__seenon-text {
+    display: grid;
+    // left and right columns to occupy remaining space, text to occupy as much space as it needs
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 15px;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
   }
 
   &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 3rem;
+    justify-items: center;
+
     img {
       height: 2.5rem;
+      filter: brightness(
+        70%
+      ); // number below 100% image gets darker, above gets lighter
     }
   }
 }
