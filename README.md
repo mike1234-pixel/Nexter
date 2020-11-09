@@ -1,4 +1,4 @@
-# CSS Grids Project - simple css grids project.
+# CSS Grids Project
 
 Grid-based layout for estate agency website.
 
